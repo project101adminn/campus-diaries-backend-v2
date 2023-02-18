@@ -1,0 +1,33 @@
+{
+  "name": "campus-diaries-backend",
+  "version": "1.0.0",
+  "description": "Backend for a frontend application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Project101Admin/backend.git"
+  },
+  "author": "Project 101",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Project101Admin/backend/issues"
+  },
+  "homepage": "https://github.com/Project101Admin/backend#readme",
+  "dependencies": {
+    "axios": "^1.2.6",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "0.0.1-security",
+    "mongoose": "^6.9.0",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "vercel": "^28.14.0"
+  }
+}
