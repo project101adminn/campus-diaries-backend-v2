@@ -42,5 +42,5 @@ app.use('/noticeBoard', noticeBoardRouter);
 app.use('/test', testRouter);
 
 app.listen(process.env.PORT || 3500, () => {
-  console.log('Server Started');
+  console.log('Server Started:', process.env.PORT || 3500);
 });
