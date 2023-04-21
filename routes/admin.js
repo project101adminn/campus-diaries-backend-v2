@@ -4,23 +4,22 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 require('../database/connection');
-var userSchema = require('../model/userSchema');
+const userSchema = require('../model/userSchema');
 
 router.post('/register', async (req, res) => {
-  const { name, email, phone, college, password, cpassword } = req.body;
-  if (!name || !email || !phone || !college || !password || !cpassword) {
+  console.log(req.body);
+  const { name, email, phone, college, password } = req.body;
+  if (!name || !email || !phone || !college || !password) {
     return res.status(422).json({ error: 'Plz filled the field properly' });
   }
   try {
     const userExist = await userSchema.findOne({ email: email });
     if (userExist) {
       return res.status(422).json({ error: 'Email already Exist' });
-    } else if (password !== cpassword) {
-      return res.status(422).json({ error: 'Email already Exist' });
     } else {
-      const user = new userSchema({ name, email, phone, college, password, cpassword });
+      const user = new userSchema({ name, email, phone, college, password });
       await user.save();
-      res.status(201).json({ message: 'user registered successfuly' });
+      res.status(201).json({ message: 'user registered successfully' });
     }
   } catch (err) {
     console.log(err);
@@ -47,7 +46,7 @@ router.post('/signin', async (req, res) => {
       if (!isMatch) {
         return res.status(422).json({ error: 'Invalid credential pass' });
       } else {
-        res.status(201).json({ message: 'user signin successfuly' });
+        res.status(201).json({ message: 'user sign in successfully' });
       }
     } else {
       res.status(422).json({ error: 'Invalid credential' });
